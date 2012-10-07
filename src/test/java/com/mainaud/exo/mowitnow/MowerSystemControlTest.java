@@ -2,9 +2,9 @@ package com.mainaud.exo.mowitnow;
 
 import static com.mainaud.exo.mowitnow.Direction.EAST;
 import static com.mainaud.exo.mowitnow.Direction.NORTH;
-import static com.mainaud.exo.mowitnow.MoverOrder.MOVE_FORWARD;
-import static com.mainaud.exo.mowitnow.MoverOrder.TURN_LEFT;
-import static com.mainaud.exo.mowitnow.MoverOrder.TURN_RIGHT;
+import static com.mainaud.exo.mowitnow.MowerOrder.MOVE_FORWARD;
+import static com.mainaud.exo.mowitnow.MowerOrder.TURN_LEFT;
+import static com.mainaud.exo.mowitnow.MowerOrder.TURN_RIGHT;
 import static org.fest.assertions.Assertions.assertThat;
 
 import org.testng.annotations.Test;

@@ -38,15 +38,15 @@ public class MowerTest {
     public Object[][] providesValidOrderMoves() {
         // @formatter:off
         return new Object[][] {
-                { MoverOrder.TURN_LEFT, new Location(1, 1, WEST) },
-                { MoverOrder.TURN_RIGHT, new Location(1, 1, EAST) },
-                { MoverOrder.MOVE_FORWARD, new Location(1, 2, NORTH) },
+                { MowerOrder.TURN_LEFT, new Location(1, 1, WEST) },
+                { MowerOrder.TURN_RIGHT, new Location(1, 1, EAST) },
+                { MowerOrder.MOVE_FORWARD, new Location(1, 2, NORTH) },
         };
         // @formatter:on
     }
 
     @Test(dataProvider = "validOrderMoves")
-    public void mowerShouldMoveWithValidOrder(MoverOrder order, Location expected) {
+    public void mowerShouldMoveWithValidOrder(MowerOrder order, Location expected) {
         Mower mower = new Mower(new Lawn(2, 2), new Location(1, 1, NORTH));
         mower.execute(order);
         assertThat(mower.getLocation()).isEqualTo(expected);
@@ -67,7 +67,7 @@ public class MowerTest {
     @Test(dataProvider = "initialLocations")
     public void mowerShouldStayOnTheLawn(Location current) {
         Mower mower = new Mower(new Lawn(2, 2), current);
-        mower.execute(MoverOrder.MOVE_FORWARD);
+        mower.execute(MowerOrder.MOVE_FORWARD);
         assertThat(mower.getLocation()).isEqualTo(current);
     }
 }

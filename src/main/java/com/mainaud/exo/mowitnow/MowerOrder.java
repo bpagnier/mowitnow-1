@@ -1,9 +1,9 @@
 package com.mainaud.exo.mowitnow;
 
 /**
- * Order that can be send to a mover.
+ * Order that can be send to a mower.
  */
-public enum MoverOrder {
+public enum MowerOrder {
     TURN_RIGHT {
         @Override
         public Location move(Location current) {

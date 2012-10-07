@@ -4,7 +4,7 @@ import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
- * Mover working unit.
+ * Mower.
  */
 public class Mower {
     private Lawn lawn;
@@ -14,7 +14,7 @@ public class Mower {
      * Create a new Mower on the given lawn at given location.
      * 
      * @param lawn
-     *            Mover's lawn.
+     *            Mower's lawn.
      * @param location
      *            Mower's location.
      */
@@ -38,7 +38,7 @@ public class Mower {
      * @param order
      *            Order to execute.
      */
-    public void execute(MoverOrder order) {
+    public void execute(MowerOrder order) {
         Location next = order.move(location);
         if (lawn.inside(next))
             location = next;

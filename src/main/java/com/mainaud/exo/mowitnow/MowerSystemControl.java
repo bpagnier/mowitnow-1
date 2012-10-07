@@ -49,7 +49,7 @@ public class MowerSystemControl {
      * @param order
      *            Order to execute.
      */
-    public void execute(MoverOrder order) {
+    public void execute(MowerOrder order) {
         checkState(lawn != null, "Lawn not setted");
         checkState(currentMower != null, "currentMower not setted");
         currentMower.execute(order);
