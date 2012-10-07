@@ -5,6 +5,7 @@
        <class name="com.mainaud.exo.mowitnow.LawnTest" />
        <class name="com.mainaud.exo.mowitnow.LocationTest" />
        <class name="com.mainaud.exo.mowitnow.MowerTest"/>
+       <class name="com.mainaud.exo.mowitnow.MowerSystemControlTest"/>
     </classes>
   </test>
  </suite>
