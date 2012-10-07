@@ -23,6 +23,20 @@ public final class Lawn {
     }
 
     /**
+     * @return the northLimit
+     */
+    public int getNorthLimit() {
+        return northLimit;
+    }
+
+    /**
+     * @return the eastLimit
+     */
+    public int getEastLimit() {
+        return eastLimit;
+    }
+
+    /**
      * Test if a location is inside the lawn.
      * 
      * @param location
