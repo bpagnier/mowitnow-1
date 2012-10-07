@@ -15,19 +15,19 @@ import org.testng.annotations.Test;
 public class MowerSystemControlTest {
     @Test(expectedExceptions = IllegalStateException.class)
     public void lawnShouldBeSettedFirst() {
-        new MowerSystemControl().addMower(new Location(0, 0, NORTH));
+        new MowItNowSystemControl().addMower(new Location(0, 0, NORTH));
     }
 
     @Test(expectedExceptions = IllegalStateException.class)
     public void mowerShouldBeAddedFirst() {
-        MowerSystemControl systemControl = new MowerSystemControl();
+        MowItNowSystemControl systemControl = new MowItNowSystemControl();
         systemControl.setLawn(new Lawn(5, 5));
         systemControl.execute(MOVE_FORWARD);
     }
 
     @Test
     public void exerciceTestSequence() {
-        MowerSystemControl control = new MowerSystemControl();
+        MowItNowSystemControl control = new MowItNowSystemControl();
         control.setLawn(new Lawn(5, 5));
         control.addMower(new Location(1, 2, NORTH));
         control.execute(TURN_LEFT);
