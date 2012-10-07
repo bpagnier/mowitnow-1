@@ -28,6 +28,11 @@ public class LocationTest {
         assertThat(new Location(1, 2, Direction.NORTH).getDirection()).isEqualTo(Direction.NORTH);
     }
 
+    @Test
+    public void toString12NShouldMatch12N() {
+        assertThat(new Location(1, 2, NORTH).toString()).isEqualTo("1 2 N");
+    }
+
     @Test(expectedExceptions = NullPointerException.class)
     public void directionMustNotBeNull() {
         new Location(1, 2, null);

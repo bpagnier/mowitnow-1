@@ -24,11 +24,7 @@ public class MowerSystemControlMock implements MowerSystemControl {
     @Override
     public void addMower(Location location) {
         sb.append('\n');
-        sb.append(location.getX());
-        sb.append(' ');
-        sb.append(location.getY());
-        sb.append(' ');
-        sb.append(location.getDirection().name().substring(0, 1));
+        sb.append(location.toString());
         sb.append('\n');
     }
 
