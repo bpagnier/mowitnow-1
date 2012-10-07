@@ -17,6 +17,7 @@ import java.nio.charset.UnsupportedCharsetException;
 
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
+import com.beust.jcommander.ParameterException;
 import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
@@ -30,6 +31,8 @@ public class MowItNow {
     private String inputFileName;
     @Parameter(names = { "-o", "--output" }, description = "Output file name")
     private String outputFileName;
+    @Parameter(names = "--help", help = true)
+    private boolean help;
 
     private Charset charset;
     private MowerSystemControl msc;
@@ -149,7 +152,16 @@ public class MowItNow {
         // done.
         Injector injector = Guice.createInjector(new MowItNowModule());
         MowItNow mowItNow = injector.getInstance(MowItNow.class);
-        new JCommander(mowItNow, args);
-        mowItNow.run();
+        JCommander jc = new JCommander(mowItNow);
+        try {
+            jc.parse(args);
+            if (mowItNow.help)
+                jc.usage();
+            else
+                mowItNow.run();
+        } catch (ParameterException e) {
+            System.err.println(e.getMessage());
+            jc.usage();
+        }
     }
 }
