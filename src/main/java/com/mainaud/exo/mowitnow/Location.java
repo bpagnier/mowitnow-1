@@ -6,6 +6,8 @@ import static com.mainaud.exo.mowitnow.Direction.NORTH;
 import static com.mainaud.exo.mowitnow.Direction.SOUTH;
 import static com.mainaud.exo.mowitnow.Direction.WEST;
 
+import com.google.common.base.Objects;
+
 /**
  * Location of a mower.
  * <p>
@@ -133,5 +135,10 @@ public final class Location {
         hash = hash * 31 + y;
         hash = hash * 31 + direction.hashCode();
         return hash;
+    }
+
+    @Override
+    public String toString() {
+        return Objects.toStringHelper(this).add("x", x).add("y", y).add("direction", direction).toString();
     }
 }
