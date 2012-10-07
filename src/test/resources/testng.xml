@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+ <suite name="mowItNow" >
+  <test name="mowItNow" >
+    <classes>
+       <class name="com.mainaud.exo.mowitnow.LawnTest" />
+       <class name="com.mainaud.exo.mowitnow.LocationTest" />
+    </classes>
+  </test>
+ </suite>
