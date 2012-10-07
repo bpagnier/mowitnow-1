@@ -17,6 +17,9 @@ import java.nio.charset.UnsupportedCharsetException;
 
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
+import com.google.inject.Guice;
+import com.google.inject.Inject;
+import com.google.inject.Injector;
 import com.mainaud.exo.mowitnow.parser.MowItNowFileParser;
 import com.mainaud.exo.mowitnow.parser.MowItNowParseException;
 
@@ -29,7 +32,12 @@ public class MowItNow {
     private String outputFileName;
 
     private Charset charset;
-    private MowerSystemControl msc = new MowItNowSystemControl();
+    private MowerSystemControl msc;
+
+    @Inject
+    private MowItNow(MowerSystemControl msc) {
+        this.msc = msc;
+    }
 
     private void run() {
         prepareCharset();
@@ -137,7 +145,10 @@ public class MowItNow {
     }
 
     public static void main(String[] args) {
-        MowItNow mowItNow = new MowItNow();
+        // OK use Guice here is quite too much be that is to show what could be
+        // done.
+        Injector injector = Guice.createInjector(new MowItNowModule());
+        MowItNow mowItNow = injector.getInstance(MowItNow.class);
         new JCommander(mowItNow, args);
         mowItNow.run();
     }
