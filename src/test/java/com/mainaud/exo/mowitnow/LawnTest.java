@@ -9,8 +9,8 @@ import org.testng.annotations.Test;
  * Tests of the Lawn object.
  */
 public class LawnTest {
-    @DataProvider(name = "insideDataTest")
-    public Object[][] providesInsideTestData() {
+    @DataProvider(name = "containsDataTest")
+    public Object[][] providesContainsTestData() {
         // @formatter:off
         return new Object[][] {
                 { 0, 0, true },
@@ -28,8 +28,8 @@ public class LawnTest {
         // @formatter:on
     }
 
-    @Test(dataProvider = "insideDataTest")
-    public void testInside(int x, int y, boolean expected) {
-        assertThat(new Lawn(4, 4).inside(new Location(x, y, Direction.NORTH))).isEqualTo(expected);
+    @Test(dataProvider = "containsDataTest")
+    public void testContains(int x, int y, boolean expected) {
+        assertThat(new Lawn(4, 4).contains(new Location(x, y, Direction.NORTH))).isEqualTo(expected);
     }
 }

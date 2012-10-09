@@ -21,7 +21,7 @@ public class Mower {
     public Mower(Lawn lawn, Location location) {
         this.lawn = checkNotNull(lawn);
         this.location = checkNotNull(location);
-        checkArgument(lawn.inside(location), "The initial location of the mower should be in the lawn.");
+        checkArgument(lawn.contains(location), "The initial location of the mower should be in the lawn.");
     }
 
     /**
@@ -40,7 +40,7 @@ public class Mower {
      */
     public void execute(MowerOrder order) {
         Location next = order.move(location);
-        if (lawn.inside(next))
+        if (lawn.contains(next))
             location = next;
     }
 }

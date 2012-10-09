@@ -43,7 +43,7 @@ public final class Lawn {
      *            Location to test.
      * @return <code>true</code> if the location is inside the lawn.
      */
-    public boolean inside(Location location) {
+    public boolean contains(Location location) {
         int lx = location.getX();
         int ly = location.getY();
         return 0 <= lx && lx <= northLimit && 0 <= ly && ly <= eastLimit;
